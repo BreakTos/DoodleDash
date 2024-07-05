@@ -22,7 +22,7 @@ const NewRoom = () => {
   
   const nameFromStorage = localStorage.getItem('name');
   const fetchData = () => {
-    fetch('https://pictionary-back.onrender.com/getHost', {
+    fetch('http://4.188.73.8:8000/getHost', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ const NewRoom = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      fetch('https://pictionary-back.onrender.com/getStatus', {
+      fetch('http://4.188.73.8:8000/getStatus', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ const NewRoom = () => {
       // before this fetch req, break if /exists returns true
 
       
-      fetch('https://pictionary-back.onrender.com/exists', {
+      fetch('http://4.188.73.8:8000/exists', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -115,7 +115,7 @@ const NewRoom = () => {
         // console.log('Exists check:', data);
         if (data.exists === false) {
           // If the player does not exist, make the second fetch request to add the player
-           fetch('https://pictionary-back.onrender.com/add', {
+           fetch('http://4.188.73.8:8000/add', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -162,7 +162,7 @@ const NewRoom = () => {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch('https://pictionary-back.onrender.com/getNames', {
+      fetch('http://4.188.73.8:8000/getNames', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -212,7 +212,7 @@ const NewRoom = () => {
             /// everyone is switched to game page ?
 
 
-            fetch('https://pictionary-back.onrender.com/addStart', {
+            fetch('http://4.188.73.8:8000/addStart', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -256,7 +256,7 @@ const NewRoom = () => {
               if(name.length!=0) localStorage.setItem('name',name); 
               console.log(localStorage.getItem('name'));
               if(localStorage.getItem('name').length>0) {
-                fetch('https://pictionary-back.onrender.com/add', {
+                fetch('http://4.188.73.8:8000/add', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json'

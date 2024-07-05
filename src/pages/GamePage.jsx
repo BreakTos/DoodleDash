@@ -29,7 +29,7 @@ const GamePage = ({ stateArray }) => {
     context.fillRect(0, 0, canvas.width, canvas.height);
     const url = window.location.href;
     const code = url.slice(-4); 
-    const ws = new WebSocket(`wss://pictionary-back.onrender.com?code=${code}`);
+    const ws = new WebSocket(`ws://4.188.73.8:8000/?code=${code}`);
     setSocket(ws);
 
     ws.onmessage = (event) => {
